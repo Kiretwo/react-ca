@@ -10,4 +10,15 @@ body {
   font-family: vars.$font-stack;
   background-color: vars.$background-color;
   color: #333;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
