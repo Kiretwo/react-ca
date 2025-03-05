@@ -1,3 +1,9 @@
-import "./Footer.module.scss";
+import styles from './Footer.module.scss';
 
-<footer className="footer">© 2025 Erik React CA</footer>;
+const Footer = () => {
+  return (
+    <footer className={styles.footer}>© 2025 Erik React CA</footer>
+  );
+};
+
+export default Footer;

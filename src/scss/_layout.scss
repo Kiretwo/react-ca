@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@use "variables" as *;
+@use "mixins" as *;
 
 // Global Page Wrapper (Centers content)
 .container {
@@ -21,21 +21,33 @@
 
   &.cols-2 {
     > * {
-      flex: 1 1 calc(50% - 10px);
+      flex: 1 1 calc(50% - 15px);
     }
   }
 
   &.cols-3 {
     > * {
-      flex: 1 1 calc(33.333% - 10px);
+      flex: 1 1 calc(33.333% - 15px);
     }
   }
 
+  // Medium screens: Switch to 2 columns
   @include respond(medium) {
+    &.cols-3 {
+      > * {
+        flex: 1 1 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+      }
+    }
+  }
+
+  // Small screens: Switch to 1 column
+  @include respond(small) {
     &.cols-2, &.cols-3 {
       flex-direction: column;
       > * {
         flex: 1 1 100%;
+        max-width: 100%;
       }
     }
   }

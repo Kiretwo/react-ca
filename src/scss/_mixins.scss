@@ -1,9 +1,9 @@
 @use "sass:map";
-@import "variables";
+@use "variables" as vars;
 
 // Responsive Media Query Mixin
 @mixin respond($size) {
-  @media (max-width: map.get($breakpoints, $size)) {
+  @media (max-width: map.get(vars.$breakpoints, $size)) {
     @content;
   }
 }
@@ -16,13 +16,13 @@
 }
 
 // Button Mixin
-@mixin button($bg: $primary-color, $color: $text-color) {
+@mixin button($bg: vars.$primary-color, $color: vars.$text-color) {
   background-color: $bg;
   color: $color;
   padding: 12px 20px;
   border-radius: 5px;
   font-size: 1rem;
-  font-family: $font-stack;
+  font-family: vars.$font-stack;
   border: none;
   cursor: pointer;
   transition: 0.3s ease-in-out;
