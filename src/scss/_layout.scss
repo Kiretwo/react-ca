@@ -1,0 +1,42 @@
+@import "variables";
+@import "mixins";
+
+// Global Page Wrapper (Centers content)
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Section Styling (Consistent Page Spacing)
+.section {
+  padding: 60px 20px;
+}
+
+// Responsive Grid System (Flexbox)
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &.cols-2 {
+    > * {
+      flex: 1 1 calc(50% - 10px);
+    }
+  }
+
+  &.cols-3 {
+    > * {
+      flex: 1 1 calc(33.333% - 10px);
+    }
+  }
+
+  @include respond(medium) {
+    &.cols-2, &.cols-3 {
+      flex-direction: column;
+      > * {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}

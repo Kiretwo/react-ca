@@ -1,0 +1,10 @@
+// Sticky Footer
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: $primary-color;
+  color: $text-color;
+  text-align: center;
+  padding: 15px;
+}
