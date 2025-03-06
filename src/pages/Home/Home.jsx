@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../../App.scss";
 import "./Home.scss";
+import ProductCard from "../../components/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -19,26 +20,7 @@ const Home = () => {
         <div className="grid cols-3">
           {products.length > 0 ? (
             products.map((product) => (
-              <div key={product.id} className="card">
-                <img
-                  src={product.image.url}
-                  alt={product.image.alt || product.title}
-                />
-                <h2>{product.title}</h2>
-                <p>{product.description}</p>
-                <p className="price">
-                  {product.discountedPrice < product.price ? (
-                    <>
-                      <span className="discounted">
-                        {product.discountedPrice} NOK
-                      </span>
-                      <span className="original">{product.price} NOK</span>
-                    </>
-                  ) : (
-                    <span>{product.price} NOK</span>
-                  )}
-                </p>
-              </div>
+              <ProductCard key={product.id} product={product} />
             ))
           ) : (
             <p>Loading products...</p>

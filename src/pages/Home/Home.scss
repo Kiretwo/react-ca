@@ -9,12 +9,16 @@
   background: white;
 
   img {
-    width: 100%; // Ensures images fill the container
-    max-width: 400px; // Set a fixed max width
-    height: 300px; // Forces uniform height
-    object-fit: cover; // Ensures images fill the box without stretching
-    border-radius: 8px; // Optional rounded corners
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
   }
+}
+
+.card-content {
+  margin-top: 10px;
 }
 
 .price {

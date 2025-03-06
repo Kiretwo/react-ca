@@ -1,0 +1,15 @@
+// Button styles
+.add-to-cart-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #388e3c;
+  }
+}
