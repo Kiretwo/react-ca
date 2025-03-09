@@ -8,49 +8,48 @@
   margin: 0 auto;
 }
 
+// Header Wrapper (Centers nav and search bar)
+.header-container {
+  @extend .container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 // Section Styling (Consistent Page Spacing)
 section {
   padding: 60px 20px;
+  @include respond-min(xlarge) {
+    padding: 60px 0px;
+  }
 }
 
 // Responsive Grid System (Flexbox)
 .grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 20px;
 
   &.cols-2 {
-    > * {
-      flex: 1 1 calc(50% - 15px);
-      max-width: calc(50% - 15px);
-    }
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
   }
 
   &.cols-3 {
-    > * {
-      flex: 1 1 calc(33.333% - 15px);
-      max-width: calc(33.333% - 15px);
-    }
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
   }
 
   // Medium screens: Switch to 2 columns
   @include respond(medium) {
     &.cols-3 {
-      > * {
-        flex: 1 1 calc(50% - 15px);
-        max-width: calc(50% - 15px);
-      }
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   // Small screens: Switch to 1 column
   @include respond(small) {
     &.cols-2, &.cols-3 {
-      flex-direction: column;
-      > * {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
+      grid-template-columns: 1fr;
     }
   }
 }

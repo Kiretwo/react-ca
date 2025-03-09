@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "../../App.scss";
 import "./Home.scss";
 import ProductCard from "../../components/ProductCard";
