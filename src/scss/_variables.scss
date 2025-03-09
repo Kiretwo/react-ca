@@ -1,8 +1,12 @@
+@use "sass:color";
+
 // Variables for colors, fonts, and breakpoints
 $primary-color: #4caf50;
 $secondary-color: #ff9800;
 $background-color: #f9f9f9;
 $text-color: #333;
+$text-color-secondary: #ffffff;
+$primary-light: color.adjust($primary-color, $lightness: 20%);
 
 $font-header: 'Roboto Slab', 'sans-serif';
 $font-stack: 'Arial, sans-serif';

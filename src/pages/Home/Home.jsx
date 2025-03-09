@@ -2,16 +2,10 @@ import { useState, useEffect } from "react";
 import "../../App.scss";
 import "./Home.scss";
 import ProductCard from "../../components/ProductCard";
+import useFetchProducts from "../../hooks/useFetchProducts";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://v2.api.noroff.dev/online-shop")
-      .then((response) => response.json())
-      .then((data) => setProducts(data.data))
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
+  const { products } = useFetchProducts(); // Fetches products from custom API hook
 
   return (
     <main className="container">

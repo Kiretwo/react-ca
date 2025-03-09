@@ -1,0 +1,73 @@
+@use "../../scss/variables" as vars;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: vars.$primary-color;
+  color: vars.$text-color-secondary;
+  position: relative;
+
+  .nav {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Search Bar Styles
+  .searchContainer {
+    position: relative;
+    width: 250px;
+
+    .searchInput {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .searchDropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 10;
+
+      li {
+        padding: 8px;
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: vars.$primary-color;
+          display: block;
+          padding: 8px;
+        }
+
+        &:hover {
+          background: vars.$primary-light;
+        }
+      }
+    }
+  }
+}
