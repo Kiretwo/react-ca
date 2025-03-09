@@ -1,9 +1,7 @@
 @use "../../scss/variables" as vars;
+@use "../../scss/layout" as layout;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 15px 20px;
   background-color: vars.$primary-color;
   color: vars.$text-color-secondary;
@@ -25,6 +23,7 @@
   }
 
   // Search Bar Styles
+
   .searchContainer {
     position: relative;
     width: 250px;
