@@ -6,10 +6,13 @@
   background-color: vars.$primary-color;
   color: vars.$text-color-secondary;
   position: relative;
+  font-size: 1.2rem;
 
   .nav {
     display: flex;
+    align-items: center;
     gap: 20px;
+    width: 100%;
 
     a {
       color: white;
@@ -22,14 +25,34 @@
     }
   }
 
+  .cartIcon {
+    margin-left: auto;
+    font-size: 1.4rem;
+    margin-top: 3px;
+    position: relative;
+  }
+
+  .cartCount {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    position: absolute;
+    padding: 3px 5px 1px 5px;
+    top: -10px;
+    right: -10px;
+  }
+
   // Search Bar Styles
 
   .searchContainer {
     position: relative;
-    width: 250px;
+    flex-grow: 1;
 
     .searchInput {
       width: 100%;
+      max-width: 500px;
       padding: 8px;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -41,6 +64,7 @@
       top: 100%;
       left: 0;
       width: 100%;
+      max-width: 500px;
       background: white;
       border: 1px solid #ddd;
       border-radius: 5px;

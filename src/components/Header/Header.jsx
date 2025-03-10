@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../CartContext";
 import useFetchProducts from "../../hooks/useFetchProducts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Header.module.scss";
 
 const Header = () => {
@@ -26,38 +28,43 @@ const Header = () => {
     <header className={styles.header}>
       <div className="header-container">
         <nav className={styles.nav}>
+          {/* Navigation Links */}
           <Link to="/">Home</Link>
-          <Link to="/cart">Cart ({cart.length})</Link>
           <Link to="/contact">Contact</Link>
-        </nav>
 
-        {/* Search Bar */}
-        <div className={styles.searchWrapper}>
-          <div className={styles.searchContainer}>
-            <input
-              type="text"
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className={styles.searchInput}
-            />
-            {/* Dropdown Suggestions */}
-            {filteredProducts.length > 0 && (
-              <ul className={styles.searchDropdown}>
-                {filteredProducts.slice(0, 5).map((product) => (
-                  <li key={product.id}>
-                    <Link
-                      to={`/product/${product.id}`}
-                      onClick={() => setSearchTerm("")}
-                    >
-                      {product.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
+          {/* Search Bar */}
+            <div className={styles.searchContainer}>
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className={styles.searchInput}
+              />
+              {/* Dropdown Suggestions */}
+              {filteredProducts.length > 0 && (
+                <ul className={styles.searchDropdown}>
+                  {filteredProducts.slice(0, 5).map((product) => (
+                    <li key={product.id}>
+                      <Link
+                        to={`/product/${product.id}`}
+                        onClick={() => setSearchTerm("")}
+                      >
+                        {product.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+          {/* Cart Icon */}
+          <Link to="/cart" className={styles.cartIcon}>
+            <FontAwesomeIcon icon={faShoppingCart} />
+            {/* Display cart count only if items are in cart */}
+            {cart.length > 0 && <span className={styles.cartCount}>{cart.length}</span>}
+          </Link>
+        </nav>
       </div>
     </header>
   );
