@@ -5,8 +5,12 @@
   padding: 15px 20px;
   background-color: vars.$primary-color;
   color: vars.$text-color-secondary;
-  position: relative;
   font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
   .nav {
     display: flex;
