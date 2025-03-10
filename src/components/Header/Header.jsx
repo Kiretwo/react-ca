@@ -12,6 +12,8 @@ const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
 
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   // Filter products based on search input
   useEffect(() => {
     if (searchTerm) {
@@ -62,7 +64,7 @@ const Header = () => {
           <Link to="/cart" className={styles.cartIcon}>
             <FontAwesomeIcon icon={faShoppingCart} />
             {/* Display cart count only if items are in cart */}
-            {cart.length > 0 && <span className={styles.cartCount}>{cart.length}</span>}
+            {totalItems > 0 && <span className={styles.cartCount}>{totalItems}</span>}
           </Link>
         </nav>
       </div>
