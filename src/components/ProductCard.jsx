@@ -1,5 +1,6 @@
 import React from "react";
-import { useCart } from "./CartContext"; // Ensure correct path to CartContext
+import { useCart } from "./CartContext";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { dispatch } = useCart(); // Access cart actions
@@ -10,8 +11,10 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="card">
-      <img src={product.image.url} alt={product.image.alt || product.title} />
-      <h2 className="card-content">{product.title}</h2>
+      <Link to={`/product/${product.id}`} className="product-link">
+        <img src={product.image.url} alt={product.image.alt || product.title} />
+        <h2 className="card-content">{product.title}</h2>
+      </Link>
       <p className="card-content">{product.description}</p>
       <p className="price card-content">
         {product.discountedPrice < product.price ? (
